@@ -62,7 +62,9 @@ JWT-based via `jose`. Server actions in `src/actions/index.ts` handle signUp/sig
 
 ## Testing
 
-Vitest with jsdom environment and React Testing Library. Tests live in `__tests__` directories alongside their source files. Path aliases (`@/*`) are resolved via `vite-tsconfig-paths`.
+Vitest with jsdom environment and React Testing Library. Tests live in `__tests__` directories alongside their source files. Path aliases (`@/*`) are resolved via `vite-tsconfig-paths`. Config is in `vitest.config.mts`.
+
+For server-side tests that need real Node APIs (e.g. `jose` crypto), add `// @vitest-environment node` at the top of the test file to override the default jsdom environment.
 
 ## Tech Specifics
 
