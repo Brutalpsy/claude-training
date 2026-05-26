@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(curl -s -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d \"{\\\\\"messages\\\\\":[{\\\\\"role\\\\\":\\\\\"user\\\\\",\\\\\"content\\\\\":\\\\\"Create a card\\\\\",\\\\\"id\\\\\":\\\\\"1\\\\\",\\\\\"parts\\\\\":[{\\\\\"type\\\\\":\\\\\"text\\\\\",\\\\\"text\\\\\":\\\\\"Create a card\\\\\"}]}],\\\\\"files\\\\\":{}}\")",
+      "Bash(curl -s -o response.txt -w \"%{http_code}\" -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d \"{\\\\\"messages\\\\\":[{\\\\\"role\\\\\":\\\\\"user\\\\\",\\\\\"content\\\\\":\\\\\"Create a card\\\\\",\\\\\"id\\\\\":\\\\\"1\\\\\",\\\\\"parts\\\\\":[{\\\\\"type\\\\\":\\\\\"text\\\\\",\\\\\"text\\\\\":\\\\\"Create a card\\\\\"}]}],\\\\\"files\\\\\":{}}\")",
+      "Bash(node -e \"const ai = require\\('./node_modules/ai/dist/index.js'\\); console.log\\('convertToModelMessages:', typeof ai.convertToModelMessages\\); console.log\\('stepCountIs:', typeof ai.stepCountIs\\);\")",
+      "Bash(node -e \"const p = require\\('./node_modules/@ai-sdk/provider/dist/index.js'\\); console.log\\(Object.keys\\(p\\).filter\\(k => k.includes\\('V1'\\)\\)\\);\")",
+      "Bash(curl -v -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d \"{\\\\\"messages\\\\\":[{\\\\\"role\\\\\":\\\\\"user\\\\\",\\\\\"content\\\\\":\\\\\"Create a card\\\\\",\\\\\"id\\\\\":\\\\\"1\\\\\",\\\\\"parts\\\\\":[{\\\\\"type\\\\\":\\\\\"text\\\\\",\\\\\"text\\\\\":\\\\\"Create a card\\\\\"}]}],\\\\\"files\\\\\":{}}\")"
+    ]
+  }
+}
