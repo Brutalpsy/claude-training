@@ -6,10 +6,11 @@ model: claude-sonnet-4-6
 
 When writing a PR description:
 
-1. Run `git diff main..HEAD --name-only` to get the list of changed files
-2. Run `git remote get-url origin` to get the repo URL, then derive the GitHub base URL (strip `.git`, convert SSH to HTTPS)
-3. Run `git rev-parse --abbrev-ref HEAD` to get the current branch name
-4. Run `git diff main..HEAD` to see all changes
+1. Detect the default branch: `git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|origin/||'` — if that fails, fall back to trying `master` then `main`
+2. Run `git diff <default-branch>..HEAD --name-only` to get the list of changed files
+3. Run `git remote get-url origin` to get the repo URL, then derive the GitHub base URL (strip `.git`, convert SSH to HTTPS)
+4. Run `git rev-parse --abbrev-ref HEAD` to get the current branch name
+5. Run `git diff <default-branch>..HEAD` to see all changes
 5. Write a description following this format:
 
 ### What
@@ -31,7 +32,7 @@ Brief context on why this change is needed.
 
 How to verify this works. Include specific commands if relevant.
 
-6. After creating the PR with `gh pr create`, output the PR URL as a clickable markdown link:
+7. After creating the PR with `gh pr create`, output the PR URL as a clickable markdown link:
    `[PR #N: <title>](<pr-url>)`
 
 Keep descriptions concise and to the point. Focus on what a reviewer needs to know.
