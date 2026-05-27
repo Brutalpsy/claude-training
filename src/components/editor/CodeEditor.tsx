@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Editor from "@monaco-editor/react";
+import Editor, { type OnMount } from "@monaco-editor/react";
+import type { editor } from "monaco-editor";
 import { useFileSystem } from "@/lib/contexts/file-system-context";
 import { Code2 } from "lucide-react";
 
 export function CodeEditor() {
   const { selectedFile, getFileContent, updateFile } = useFileSystem();
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
 
-  const handleEditorDidMount = (editor: any) => {
+  const handleEditorDidMount: OnMount = (editor) => {
     editorRef.current = editor;
   };
 

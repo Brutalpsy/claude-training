@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { FileNode } from "@/lib/file-system";
 import { useFileSystem } from "@/lib/contexts/file-system-context";
 import {
@@ -41,15 +41,27 @@ function FileTreeNode({ node, level }: FileTreeNodeProps) {
         })
       : [];
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <div>
       <div
+        role={node.type === "directory" ? "treeitem" : "treeitem"}
+        aria-expanded={node.type === "directory" ? isExpanded : undefined}
+        aria-selected={selectedFile === node.path}
+        tabIndex={0}
         className={cn(
           "flex items-center gap-2 px-2 py-1.5 hover:bg-gray-100 cursor-pointer text-sm transition-colors",
           selectedFile === node.path && "bg-blue-50 text-blue-600"
         )}
         style={{ paddingLeft: `${level * 12 + 8}px` }}
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
       >
         {node.type === "directory" ? (
           <>
@@ -106,7 +118,7 @@ export function FileTree() {
 
   return (
     <ScrollArea className="h-full">
-      <div className="py-2" key={refreshTrigger}>
+      <div role="tree" className="py-2" key={refreshTrigger}>
         {rootChildren.map((child) => (
           <FileTreeNode key={child.path} node={child} level={0} />
         ))}
