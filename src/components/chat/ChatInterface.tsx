@@ -10,14 +10,18 @@ export function ChatInterface() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { messages, input, handleInputChange, handleSubmit, status } = useChat();
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to bottom only when user is already near the bottom
   useEffect(() => {
     if (scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current.querySelector(
         "[data-radix-scroll-area-viewport]"
       );
       if (scrollContainer) {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+        const isNearBottom = scrollHeight - scrollTop - clientHeight < 100;
+        if (isNearBottom) {
+          scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        }
       }
     }
   }, [messages]);

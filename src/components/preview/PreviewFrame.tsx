@@ -96,7 +96,7 @@ export function PreviewFrame() {
     };
 
     updatePreview();
-  }, [refreshTrigger, getAllFiles, entryPoint, error, isFirstLoad]);
+  }, [refreshTrigger, entryPoint, error, isFirstLoad]);
 
   if (error) {
     if (error === "firstLoad") {
@@ -105,6 +105,7 @@ export function PreviewFrame() {
           <div className="text-center max-w-md">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
               <svg
+                aria-hidden="true"
                 className="h-8 w-8 text-blue-600"
                 fill="none"
                 viewBox="0 0 24 24"
