@@ -1,4 +1,6 @@
-# UIGen
+# UIGen — React Component Generator
+
+> Part of the [claude-training](../) monorepo.
 
 AI-powered React component generator with live preview.
 
