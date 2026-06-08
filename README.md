@@ -4,32 +4,17 @@ A monorepo containing two projects built around the [Anthropic Claude](https://w
 
 ## Projects
 
-### [react-component-generator](./react-component-generator)
+### [react-component-generator](./react-component-generator/README.md) — UIGen
 
 AI-powered React component generator with live in-browser preview. Describe a component in plain English and watch it render in real time — no files written to disk.
 
-- **Stack:** Next.js 15, React 19, TypeScript, Tailwind CSS v4, Prisma/SQLite, Vercel AI SDK
-- **Runs on:** Node.js 18+
+**Stack:** Next.js 15 · React 19 · TypeScript · Tailwind CSS v4 · Prisma/SQLite · Vercel AI SDK
 
-```bash
-cd react-component-generator
-npm run setup
-npm run dev        # http://localhost:3000
-```
+### [mcp](./mcp/README.md) — MCP Chat
 
-### [mcp](./mcp)
+Interactive CLI chat client that connects Claude to one or more MCP (Model Context Protocol) servers. Supports document retrieval via `@docId` mentions and slash command prompts with tab completion.
 
-Interactive CLI chat client that connects Claude to one or more MCP (Model Context Protocol) servers. Supports document retrieval, slash command prompts with tab completion, and extensible tool integrations.
-
-- **Stack:** Python 3.9+, Anthropic SDK, prompt-toolkit, FastMCP, uv
-- **Requires:** `ANTHROPIC_API_KEY` in `mcp/.env`
-
-```bash
-cd mcp
-uv venv && .venv\Scripts\activate
-uv pip install -e .
-uv run main.py
-```
+**Stack:** Python 3.9+ · Anthropic SDK · prompt-toolkit · FastMCP · uv
 
 ## Repository Layout
 
