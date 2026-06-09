@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Repository Overview
 
-This is a monorepo containing two independent projects built around the Claude AI API.
+This repository contains two independent projects built around the Claude AI API.
 
 ```
 react-component-generator/   # Next.js app — AI-powered React component generator
