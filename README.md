@@ -1,6 +1,6 @@
 # Claude Training
 
-A monorepo containing two projects built around the [Anthropic Claude](https://www.anthropic.com) API.
+A single repository containing two independent projects built around the [Anthropic Claude](https://www.anthropic.com) API.
 
 ## Projects
 
